@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Cards } from '../model/cards';
+import { AllCards } from './all-cards';
 
 @Component({
   selector: 'app-actual-game',
@@ -7,9 +7,10 @@ import { Cards } from '../model/cards';
   styleUrls: ['./actual-game.component.scss']
 })
 export class ActualGameComponent implements OnInit {
-  cards: Cards[];
-  
-  constructor() { }
+  cards: AllCards = new AllCards();
+  constructor() {
+    console.log(this.cards.getCards());
+  }
 
   ngOnInit(): void {
   }
