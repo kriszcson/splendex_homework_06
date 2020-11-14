@@ -1,1 +1,12 @@
-new-game works!
+<div class="container">
+    <div class="setter">
+        <label for=" deck-size ">Deck size:</label>
+        <select [(ngModel)]="sizeOfMatch">
+            <option *ngFor=" let o of options " [value]="o.value">
+            {{o.name}}
+            </option>
+        </select>
+        <h1>selected: {{sizeOfMatch}}</h1>
+        <button class="btn btn-primary " (click)="getSize() " routerLink="/actual">START NEW GAME </button>
+    </div>
+</div>

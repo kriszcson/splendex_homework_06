@@ -1,0 +1,45 @@
+.container {
+    display: flex;
+    background-color: black;
+    display: fixed;
+    .logo {
+        margin: 30px auto;
+        display: flex;
+        flex-direction: row;
+        color: white;
+        margin: 5px;
+        padding: 5px;
+        width: 40%;
+    }
+}
+
+.setter {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    label {
+        color: white;
+        margin: 10px;
+        font-size: 1.3rem;
+    }
+    select {
+        display: flex;
+        align-items: center;
+        text-align: center;
+        justify-content: center;
+        margin: 0 auto;
+        height: 40%;
+        width: 100px;
+        border-radius: 10%;
+    }
+    button {
+        background-color: orangered;
+        color: white;
+        align-items: center;
+        text-align: center;
+        font-weight: bold;
+        height: 40%;
+        border-radius: 10%;
+        margin: 10px;
+    }
+}
