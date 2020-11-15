@@ -1,13 +1,13 @@
 <div class="container">
-    <div class="heading-container">
-        <div class="heading">
-            <div class="current">Current tries: {{tryPairing}}</div>
-            <div class="best">
-                <div class="best-label">Best:</div>
-                <div class="best-value"> {{best}}</div>
-            </div>
-            <button class="restart" (click)="startGame()">RESTART</button></div>
-    </div>
+    <div class="heading">
+        <div class="current">Current tries:
+            <span class="current-value">{{tryPairing}}</span>
+        </div>
+        <div class="best">
+            <div class="best-label">Best: </div>
+            <div class="best-value">{{best}} </div>
+        </div>
+        <button class="restart" (click)="startGame()">RESTART</button></div>
     <div class="cards-container">
         <ul class="cards" *ngFor="let card of allCards">
             <li class="card" (click)="checkClickValidity(card.id)" [ngClass]="card.isPaired ? 'paired' : 'unpaired'">
