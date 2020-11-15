@@ -7,82 +7,95 @@ import { AllCards } from './all-cards';
   styleUrls: ['./actual-game.component.scss']
 })
 export class ActualGameComponent implements OnInit {
-  getCards: AllCards = new AllCards();
-  allCards = this.getCards.getCards();
+  cards: AllCards = new AllCards();
+  allCards = this.cards.getCards();
   countOfReveald: number = 0;
   clicks = 0;
-  tempId: number;
+  best = 400;
+  firstRevealedId = -1;
+  secondRevealedId = -1;
   bestValue = 0;
   @Input() actualCards: number;
 
   constructor() {
-    this.startGame();
+    this.cards.getCards();
   }
 
   ngOnInit(): void {
   }
 
   startGame() {
-    this.shuffleCards(this.allCards);
+    if (this.clicks < this.best && this.isFinished()) {
+      this.best = this.clicks;
+    }
     this.clicks = 0;
     this.countOfReveald = 0;
   }
 
   checkClickValidity(id: number) {
     for (let i = 0; i < this.allCards.length; i++) {
-      if (this.allCards[i].id === id && !this.allCards[i].isRevealed && !this.allCards[i].isPaired) {
+      if (!this.allCards[i].isRevealed && !this.allCards[i].isPaired && i === id) {
         this.revealCard(id);
       }
     }
   }
   revealCard(id: number) {
+    this.countOfReveald++;
     this.clicks++;
-    for (let i = 0; i < this.allCards.length; i++) {
-      if (this.allCards[i].id === id) {
-        this.allCards[i].isRevealed = true;
-        this.countOfReveald++;
-        if (this.countOfReveald === 1) {
-          this.tempId = id;
-        }
-        else {
-          this.hide(id);
-        }
+    if (this.countOfReveald === 1) {
+      if (this.clicks != 1) {
+        console.log("First ID: " + this.firstRevealedId);
+        console.log("Second ID: " + this.secondRevealedId);
+        this.hide();
       }
-      if ((this.allCards[i].logoUrl === this.allCards[id].logoUrl)
-        && i != id && this.allCards[i].isRevealed) {
-        this.allCards[i].isPaired = true;
-        this.allCards[id].isPaired = true;
-      }
-    }
-  }
-
-  hide(id: number) {
-    for (let i = 0; i < this.allCards.length; i++) {
-      if (i != id) {
-        this.allCards[i].isRevealed = false;
-      }
-      console.log(this.allCards[this.tempId].isRevealed);
+      this.revealFirstCard(id);
+      this.firstRevealedId = id;
+    } else {
+      this.revealSecondCard(id);
       this.countOfReveald = 0;
     }
   }
+
+  revealFirstCard(id: number) {
+    this.allCards[id].isRevealed = true;
+    this.firstRevealedId = id;
+  }
+
+  revealSecondCard(id: number) {
+    this.allCards[id].isRevealed = true;
+    this.checkPair(id);
+  }
+
+  checkPair(id: number) {
+    if (this.allCards[id].logoUrl === this.allCards[this.firstRevealedId].logoUrl) {
+      this.allCards[id].isPaired = true;
+      this.allCards[this.firstRevealedId].isPaired = true;
+    }
+    this.secondRevealedId = id;
+    console.log(this.secondRevealedId);
+  }
+
+
+  isFinished() {
+    for (let i = 0; i < this.allCards.length; i++) {
+      if (this.allCards[i].isPaired === false) {
+        return false;
+      }
+    }
+    return true;
+  }
+
+  hide() {
+    for (let i = 0; i < this.allCards.length; i++) {
+      this.allCards[i].isRevealed = false;
+    }
+  }
+
   wait(ms) {
     let start = new Date().getTime();
     let end = start;
     while (end < start + ms) {
       end = new Date().getTime();
     }
-  }
-
-  shuffleCards(cards) {
-    let currentIndex = cards.length, temporaryValue, randomIndex;
-    while (0 !== currentIndex) {
-      randomIndex = Math.floor(Math.random() * currentIndex);
-      currentIndex -= 1;
-      temporaryValue = cards[currentIndex];
-      cards[currentIndex] = cards[randomIndex];
-      cards[randomIndex] = temporaryValue;
-      cards[randomIndex].isRevealed = false;
-    }
-    return cards;
   }
 }

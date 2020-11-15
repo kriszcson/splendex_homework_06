@@ -6,7 +6,7 @@
                 <div class="best-label">Best:</div>
                 <div class="best-value"> {{bestValue}}</div>
             </div>
-            <button class="restart">RESTART</button></div>
+            <button class="restart" (click)="startGame()">RESTART</button></div>
     </div>
     <div class="cards-container">
         <ul class="cards" *ngFor="let card of allCards">

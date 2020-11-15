@@ -102,6 +102,20 @@ export class AllCards {
     },
     ]
     getCards() {
-        return this.cards;
+        return this.shuffleCards(this.cards);
+    }
+    shuffleCards(cards) {
+        let currentIndex = cards.length, temporaryValue, randomIndex;
+        while (0 !== currentIndex) {
+            randomIndex = Math.floor(Math.random() * currentIndex);
+            currentIndex -= 1;
+            temporaryValue = cards[currentIndex];
+            cards[currentIndex] = cards[randomIndex];
+            cards[randomIndex] = temporaryValue;
+            cards[randomIndex].isRevealed = false;
+        } for (let i = 0; i < this.cards.length; i++) {
+            cards[i].id = i;
+        }
+        return cards;
     }
 }
