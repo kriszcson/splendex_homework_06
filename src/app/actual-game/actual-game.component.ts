@@ -11,25 +11,23 @@ export class ActualGameComponent implements OnInit {
   allCards = this.cards.getCards();
   countOfReveald: number = 0;
   clicks = 0;
-  best = 400;
+  best = 0;
   firstRevealedId = -1;
   secondRevealedId = -1;
-  bestValue = 0;
   @Input() actualCards: number;
 
   constructor() {
-    this.cards.getCards();
   }
 
   ngOnInit(): void {
   }
 
   startGame() {
-    if (this.clicks < this.best && this.isFinished()) {
-      this.best = this.clicks;
-    }
     this.clicks = 0;
     this.countOfReveald = 0;
+    this.allCards = this.cards.getCards();
+    this.hide();
+    this.unPair();
   }
 
   checkClickValidity(id: number) {
@@ -44,8 +42,6 @@ export class ActualGameComponent implements OnInit {
     this.clicks++;
     if (this.countOfReveald === 1) {
       if (this.clicks != 1) {
-        console.log("First ID: " + this.firstRevealedId);
-        console.log("Second ID: " + this.secondRevealedId);
         this.hide();
       }
       this.revealFirstCard(id);
@@ -53,6 +49,7 @@ export class ActualGameComponent implements OnInit {
     } else {
       this.revealSecondCard(id);
       this.countOfReveald = 0;
+      this.checkFinished();
     }
   }
 
@@ -72,17 +69,17 @@ export class ActualGameComponent implements OnInit {
       this.allCards[this.firstRevealedId].isPaired = true;
     }
     this.secondRevealedId = id;
-    console.log(this.secondRevealedId);
   }
 
-
-  isFinished() {
+  checkFinished(): void {
     for (let i = 0; i < this.allCards.length; i++) {
       if (this.allCards[i].isPaired === false) {
-        return false;
+        return;
       }
     }
-    return true;
+    if (this.clicks <= this.best || this.best === 0) {
+      this.best = this.clicks;
+    }
   }
 
   hide() {
@@ -91,11 +88,9 @@ export class ActualGameComponent implements OnInit {
     }
   }
 
-  wait(ms) {
-    let start = new Date().getTime();
-    let end = start;
-    while (end < start + ms) {
-      end = new Date().getTime();
+  unPair() {
+    for (let i = 0; i < this.allCards.length; i++) {
+      this.allCards[i].isPaired = false;
     }
   }
 }
