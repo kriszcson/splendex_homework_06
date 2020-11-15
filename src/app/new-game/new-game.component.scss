@@ -1,8 +1,45 @@
 .container {
-    flex-direction: row;
-    background-color: #a3a1a1;
+    background-color: #e8e8ebcc;
     display: flex;
     flex-direction: column;
+    align-items: center;
+    text-align: center;
     height: 100vh;
-    .setters {}
+    .header {
+        font-size: 2.5rem;
+        font-weight: 800;
+        color: black;
+        margin-top: 15vh;
+        margin-bottom: 13vh;
+    }
+    .elements {
+        .label {
+            font-size: 0.9rem;
+            margin-bottom: 1vh;
+        }
+        .selector {
+            width: 13vh;
+            height: 6vh;
+            border-radius: 8%;
+            border: 1px solid grey;
+            font-size: 1.6rem;
+            justify-content: center;
+            text-align: center;
+            margin-bottom: 3vh;
+        }
+        .btn {
+            width: 23vh;
+            height: 6vh;
+            outline: none;
+            border: none;
+            border-radius: 3%;
+            background-color: #ff4710;
+            color: white;
+            font-size: 0.9rem;
+            font-weight: bold;
+        }
+        .btn:hover {
+            background-color: teal;
+        }
+    }
 }

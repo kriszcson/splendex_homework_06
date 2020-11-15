@@ -1,11 +1,13 @@
 <div class="container">
-    <div class="setter">
-        <label for=" deck-size ">Deck size:</label>
-        <select [(ngModel)]="sizeOfMatch">
-            <option *ngFor=" let o of options " [value]="o.value">
+    <div class="header">Splendex Memory Game</div>
+    <div class="elements">
+        <div class="label"> <label for=" deck-size ">Deck size</label></div>
+        <div class="setter"> <select [(ngModel)]="sizeOfMatch" class="selector">
+        <option *ngFor=" let o of options " [value]="o.value ">
             {{o.name}}
-            </option>
+        </option>
         </select>
-        <button class="btn btn-primary " (click)="getSize() " [routerLink]="['/actual']" [state]="{count: sizeOfMatch}">START NEW GAME </button>
+        </div>
+        <button class="btn btn-primary " (click)="getSize() " [routerLink]="[ '/actual'] " [state]="{count: sizeOfMatch} ">START NEW GAME </button>
     </div>
 </div>
