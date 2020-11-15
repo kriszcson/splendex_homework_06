@@ -11,6 +11,7 @@ export class ActualGameComponent implements OnInit {
   allCards = this.cards.getCards();
   countOfReveald: number = 0;
   clicks = 0;
+  tryPairing=0;
   best = 0;
   firstRevealedId = -1;
   secondRevealedId = -1;
@@ -61,6 +62,7 @@ export class ActualGameComponent implements OnInit {
   revealSecondCard(id: number) {
     this.allCards[id].isRevealed = true;
     this.checkPair(id);
+    this.tryPairing++;
   }
 
   checkPair(id: number) {
@@ -78,7 +80,7 @@ export class ActualGameComponent implements OnInit {
       }
     }
     if (this.clicks <= this.best || this.best === 0) {
-      this.best = this.clicks;
+      this.best = this.tryPairing;
     }
   }
 

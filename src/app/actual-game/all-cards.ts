@@ -101,6 +101,7 @@ export class AllCards {
         isPaired: false
     },
     ]
+    
     getCards() {
         return this.shuffleCards(this.cards);
     }

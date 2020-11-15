@@ -1,7 +1,6 @@
-$secondary-background-color: lightgrey;
 .container {
-    display: flex;
     flex-direction: column;
+    height: 100%;
     .heading-container {
         display: flex;
         .heading {
@@ -65,10 +64,39 @@ $secondary-background-color: lightgrey;
             flex: 5;
             justify-content: center;
             align-items: center;
-            border: 1px solid lightgrey;
-            border-radius: 10%;
-            background-color: $secondary-background-color;
-            cursor: pointer;
+            border-radius: 8%;
+            border: 2px solid rgb(246, 242, 242);
+        }
+        .paired {
+            border: none;
+            opacity: 0.5;
+        }
+        .unpaired {
+            background-color: rgb(250, 248, 248);
+        }
+        .unpaired:hover {
+            background-color: rgb(211, 223, 223);
         }
     }
+}
+
+.container::after {
+    content: "";
+    background: url("../../assets/postcss-background.svg");
+    background-color: rgb(110, 95, 95);
+    opacity: 0.1;
+    background-size: 1400px 1200px;
+    width: 100%;
+    height: auto;
+    background-repeat: no-repeat;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    z-index: -1;
+}
+
+.unpaired::after {
+    background-color: red;
 }
