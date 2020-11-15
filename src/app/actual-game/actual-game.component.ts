@@ -1,26 +1,36 @@
 import { Component, Input, OnInit, ɵAPP_ID_RANDOM_PROVIDER } from '@angular/core';
 import { AllCards } from './all-cards';
-
+import { ActivatedRoute, Router } from '@angular/router';
+import { map } from 'rxjs/operators';
 @Component({
   selector: 'app-actual-game',
   templateUrl: './actual-game.component.html',
   styleUrls: ['./actual-game.component.scss']
 })
 export class ActualGameComponent implements OnInit {
+  countOfCards;
   cards: AllCards = new AllCards();
   allCards = this.cards.getCards();
   countOfReveald: number = 0;
   clicks = 0;
-  tryPairing=0;
+  tryPairing = 0;
   best = 0;
   firstRevealedId = -1;
   secondRevealedId = -1;
-  @Input() actualCards: number;
 
-  constructor() {
+
+
+  constructor(public activatedRoute: ActivatedRoute) {
   }
 
   ngOnInit(): void {
+    this.activatedRoute.paramMap
+      .pipe(map(() => window.history.state))
+      .subscribe(data => {
+        console.log('data', data);
+        this.countOfCards = data.count;
+        console.log(this.countOfCards);
+      })
   }
 
   startGame() {

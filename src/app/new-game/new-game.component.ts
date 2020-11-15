@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-new-game',
@@ -7,7 +8,8 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 })
 
 export class NewGameComponent implements OnInit {
-  @Output() sizeOfMatch = new EventEmitter<number>();
+  sizeOfMatch;
+
   options = [
     { name: "3 Pairs", value: 3 },
     { name: "4 Pairs", value: 4 },
@@ -18,8 +20,10 @@ export class NewGameComponent implements OnInit {
     { name: "9 Pairs", value: 9 },
     { name: "10 Pairs", value: 10 }
   ]
-
+  constructor(private router: Router) {
+  }
   ngOnInit(): void {
+    this.router.navigateByUrl('', { state: this.sizeOfMatch });
   }
 
   getSize() {

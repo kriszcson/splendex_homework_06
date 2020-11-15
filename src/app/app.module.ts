@@ -7,7 +7,7 @@ import { HeaderComponent } from './header/header.component';
 import { ActualGameComponent } from './actual-game/actual-game.component';
 import { FormsModule } from '@angular/forms'
 const appRoutes: Routes = [
-  { path: '', component: NewGameComponent },
+  { path: '', component: NewGameComponent},
   { path: 'actual', component: ActualGameComponent }
 ];
 
