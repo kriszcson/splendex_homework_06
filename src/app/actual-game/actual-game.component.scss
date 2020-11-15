@@ -6,13 +6,13 @@
         align-items: center;
         width: 100%;
         .heading {
-            width: 55%;
+            width: 47%;
             text-align: center;
             margin-top: 30px;
             .current {
                 float: left;
                 text-align: right;
-                width: 20%;
+                width: 22%;
                 font-size: 1.3rem;
                 margin-top: 17px;
                 color: #5c5858;
@@ -55,10 +55,8 @@
             .cards {
                 list-style-type: none;
                 display: flex;
-                flex: 5;
                 align-items: center;
                 justify-content: center;
-                width: auto;
             }
             .logo {
                 width: 10vh;
@@ -93,7 +91,7 @@
         background-color: rgb(202, 195, 195);
         opacity: 0.2;
         background-size: 1400px 1200px;
-        height: 100vh;
+        height: 110vh;
         width: auto;
         background-repeat: no-repeat;
         top: 0;
