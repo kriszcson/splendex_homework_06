@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-new-game',
@@ -8,7 +8,6 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 export class NewGameComponent implements OnInit {
   @Output() sizeOfMatch = new EventEmitter<number>();
-
   options = [
     { name: "3 Pairs", value: 3 },
     { name: "4 Pairs", value: 4 },

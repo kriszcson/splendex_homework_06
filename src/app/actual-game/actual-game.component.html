@@ -1,1 +1,18 @@
-<p>actual-game works!</p>
+<div class="container">
+    <div class="heading-container">
+        <div class="heading">
+            <div class="current">Current tries: {{clicks}}</div>
+            <div class="best">
+                <div class="best-label">Best:</div>
+                <div class="best-value"> {{bestValue}}</div>
+            </div>
+            <button class="restart">RESTART</button></div>
+    </div>
+    <div class="cards-container">
+        <ul class="cards" *ngFor="let card of allCards">
+            <li class="card" (click)="checkClickValidity(card.id)">
+                <img [src]="card.logoUrl " class="logo " *ngIf="card.isPaired || card.isRevealed ">
+            </li>
+        </ul>
+    </div>
+</div>

@@ -1,103 +1,103 @@
 export class AllCards {
     cards = [{
         logoUrl: "../../assets/splendex.png",
-        whichOfPair: 1,
-        isVisible: false,
+        id: 0,
+        isRevealed: false,
         isPaired: false
     }, {
         logoUrl: "../../assets/splendex.png",
-        whichOfPair: 2,
-        isVisible: false,
+        id: 1,
+        isRevealed: false,
         isPaired: false
     }, {
         logoUrl: "../../assets/angular.png",
-        whichOfPair: 1,
-        isVisible: false,
+        id: 2,
+        isRevealed: false,
         isPaired: false
     }, {
         logoUrl: "../../assets/angular.png",
-        whichOfPair: 2,
-        isVisible: false,
+        id: 3,
+        isRevealed: false,
         isPaired: false
     }, {
         logoUrl: "../../assets/d3.png",
-        whichOfPair: 1,
-        isVisible: false,
+        id: 4,
+        isRevealed: false,
         isPaired: false
     }, {
         logoUrl: "../../assets/d3.png",
-        whichOfPair: 2,
-        isVisible: false,
+        id: 5,
+        isRevealed: false,
         isPaired: false
     }, {
         logoUrl: "../../assets/jenkins.png",
-        whichOfPair: 1,
-        isVisible: false,
+        id: 6,
+        isRevealed: false,
         isPaired: false
     }, {
         logoUrl: "../../assets/jenkins.png",
-        whichOfPair: 2,
-        isVisible: false,
+        id: 7,
+        isRevealed: false,
         isPaired: false
     }, {
         logoUrl: "../../assets/postcss.png",
-        whichOfPair: 1,
-        isVisible: false,
+        id: 8,
+        isRevealed: false,
         isPaired: false
     }, {
         logoUrl: "../../assets/postcss.png",
-        whichOfPair: 2,
-        isVisible: false,
+        id: 9,
+        isRevealed: false,
         isPaired: false
     }, {
         logoUrl: "../../assets/react.png",
-        whichOfPair: 1,
-        isVisible: false,
+        id: 10,
+        isRevealed: false,
         isPaired: false
     }, {
         logoUrl: "../../assets/react.png",
-        whichOfPair: 2,
-        isVisible: false,
+        id: 11,
+        isRevealed: false,
         isPaired: false
     }, {
         logoUrl: "../../assets/sass.png",
-        whichOfPair: 1,
-        isVisible: false,
+        id: 12,
+        isRevealed: false,
         isPaired: false
     }, {
         logoUrl: "../../assets/sass.png",
-        whichOfPair: 2,
-        isVisible: false,
+        id: 13,
+        isRevealed: false,
         isPaired: false
     }, {
         logoUrl: "../../assets/ts.png",
-        whichOfPair: 1,
-        isVisible: false,
+        id: 14,
+        isRevealed: false,
         isPaired: false
     }, {
         logoUrl: "../../assets/ts.png",
-        whichOfPair: 2,
-        isVisible: false,
+        id: 15,
+        isRevealed: false,
         isPaired: false
     }, {
         logoUrl: "../../assets/webpack.png",
-        whichOfPair: 1,
-        isVisible: false,
+        id: 16,
+        isRevealed: false,
         isPaired: false
     }, {
         logoUrl: "../../assets/webpack.png",
-        whichOfPair: 2,
-        isVisible: false,
+        id: 17,
+        isRevealed: false,
         isPaired: false
     }, {
         logoUrl: "../../assets/redux.png",
-        whichOfPair: 1,
-        isVisible: false,
+        id: 18,
+        isRevealed: false,
         isPaired: false
     }, {
         logoUrl: "../../assets/redux.png",
-        whichOfPair: 2,
-        isVisible: false,
+        id: 19,
+        isRevealed: false,
         isPaired: false
     },
     ]

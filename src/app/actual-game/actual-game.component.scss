@@ -1,0 +1,74 @@
+$secondary-background-color: lightgrey;
+.container {
+    display: flex;
+    flex-direction: column;
+    .heading-container {
+        display: flex;
+        .heading {
+            display: flex;
+            height: 10%;
+            margin-top: 3vh;
+            font-size: 1.5rem;
+            margin-left: 18%;
+            .current {
+                justify-content: left;
+                align-items: center;
+                justify-content: center;
+                text-align: left;
+            }
+            .best {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                margin-left: 46vh;
+                .best-value {
+                    font-size: 2rem;
+                    font-weight: bold;
+                }
+            }
+            .restart {
+                margin-left: 52vh;
+                width: 7.2rem;
+                height: 2.5rem;
+                font-size: 1.2rem;
+                background-color: inherit;
+                font-weight: 700;
+                border: 2px solid black;
+            }
+        }
+    }
+    .cards-container {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        align-items: center;
+        margin: 0 auto;
+        width: 70%;
+        .cards {
+            list-style-type: none;
+            display: flex;
+            flex-wrap: wrap;
+            flex: 5;
+            align-items: center;
+            justify-content: center;
+        }
+        .logo {
+            width: 15vh;
+            height: 15vh;
+        }
+        li {
+            height: 20vh;
+            width: 20vh;
+            display: flex;
+            flex: 5;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid lightgrey;
+            border-radius: 10%;
+            background-color: $secondary-background-color;
+            cursor: pointer;
+        }
+    }
+}
