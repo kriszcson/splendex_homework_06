@@ -28,7 +28,6 @@ export class ActualGameComponent implements OnInit {
     this.activatedRoute.paramMap
       .pipe(map(() => window.history.state))
       .subscribe(data => {
-        console.log('data', data);
         this.countOfCards = data.count * 2;
         console.log(this.countOfCards);
       })

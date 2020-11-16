@@ -16,12 +16,9 @@ export class ResetComponent implements OnInit {
       .pipe(map(() => window.history.state))
       .subscribe(data => {
         console.log('data', data);
-        this.sizeOfMatch = data.count * 2;
+        this.sizeOfMatch = data.getCount;
         console.log(this.sizeOfMatch);
       })
 
-  }
-  submit() {
-    this.router.navigateByUrl('actual', { state: this.sizeOfMatch });
   }
 } 
