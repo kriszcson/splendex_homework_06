@@ -7,6 +7,6 @@
             {{o.name}}
             </option>
         </select>
-        <button class="btn btn-primary " (click)="getSize() " routerLink="/actual">START NEW GAME </button>
+        <button class="btn btn-primary " (click)="getSize() " [state]=" {getCount: sizeOfMatch} " [routerLink]="[ '/reset'] ">START NEW GAME </button>
     </div>
 </div>

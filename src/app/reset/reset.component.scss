@@ -1,0 +1,36 @@
+    .container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        width: 100%;
+        .restart {
+            margin-top: 300px;
+            width: 20rem;
+            height: 6rem;
+            font-size: 4rem;
+            background-color: inherit;
+            font-weight: 700;
+            border: 3px solid#272727;
+        }
+        .restart:hover {
+            background-color: teal;
+        }
+    }
+    
+    .container::after {
+        content: "";
+        background: url("../../assets/postcss-background.svg");
+        background-color: rgb(202, 195, 195);
+        opacity: 0.2;
+        background-size: 1400px 1200px;
+        height: 110vh;
+        width: auto;
+        background-repeat: no-repeat;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        position: absolute;
+        z-index: -1;
+    }

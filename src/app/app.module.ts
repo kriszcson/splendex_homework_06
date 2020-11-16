@@ -5,10 +5,14 @@ import { AppComponent } from './app.component';
 import { NewGameComponent } from './new-game/new-game.component';
 import { HeaderComponent } from './header/header.component';
 import { ActualGameComponent } from './actual-game/actual-game.component';
-import { FormsModule } from '@angular/forms'
+import { FormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ResetComponent } from './reset/reset.component';
 const appRoutes: Routes = [
-  { path: '', component: NewGameComponent},
-  { path: 'actual', component: ActualGameComponent }
+  { path: '', component: NewGameComponent },
+  { path: 'actual', component: ActualGameComponent },
+  { path: 'actual', component: HeaderComponent },
+  { path: 'reset', component: ResetComponent }
 ];
 
 @NgModule({
@@ -16,7 +20,8 @@ const appRoutes: Routes = [
     AppComponent,
     NewGameComponent,
     HeaderComponent,
-    ActualGameComponent
+    ActualGameComponent,
+    ResetComponent
   ],
   imports: [
     BrowserModule,

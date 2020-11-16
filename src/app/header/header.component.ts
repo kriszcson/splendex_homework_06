@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -6,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-  sizeOfMatch: number;
+  sizeOfMatch;
   options = [
     { name: "3 Pairs", value: 3 },
     { name: "4 Pairs", value: 4 },
@@ -17,9 +18,10 @@ export class HeaderComponent implements OnInit {
     { name: "9 Pairs", value: 9 },
     { name: "10 Pairs", value: 10 }
   ]
-  constructor() { }
+  constructor(private router:Router) { }
 
   ngOnInit(): void {
+    this.router.navigateByUrl('', { state: this.sizeOfMatch });
   }
   getSize() {
 

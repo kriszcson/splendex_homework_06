@@ -1,6 +1,6 @@
 import { Component, Input, OnInit, ɵAPP_ID_RANDOM_PROVIDER } from '@angular/core';
 import { AllCards } from './all-cards';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { map } from 'rxjs/operators';
 
 @Component({
@@ -30,6 +30,7 @@ export class ActualGameComponent implements OnInit {
       .subscribe(data => {
         console.log('data', data);
         this.countOfCards = data.count * 2;
+        console.log(this.countOfCards);
       })
     this.getSize();
   }
